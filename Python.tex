@@ -1,53 +1,8 @@
-The calculations are done in python: (Code excluding plots)
-\begin{lstlisting}[language = Python, caption = Python code]
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
+\markdownInput{Python/}
 
-#Venturi
-Q = np.array([1, 1.5, 2.0, 2.5, 3.0, 3.5])*10**(-3)/60
-Pd = np.mean(np.array([[35,34], [61,58], [92,85],[ 125,120], [166,160], [209,204]])*10**2, axis = 1)
-Pv = np.mean(np.array([[61, 46], [99, 100], [180,168], [272,272], [374,390], [493, 500]])*10**2, axis = 1)
-da = 6.4*10**(-3)
-db = 2.5*10**(-3)
-
-IdealPv = (8*Q**2*(1-da**4/db**4))/(np.pi**2*db**4)
-
-
-Qmeasured = np.pi/4 * db**2 * np.sqrt(2*9.81*(-Pv)/(998*(1-(da/db)**4)))
-hf1 = Pv/(998*9.81) + 2*Q**2/(9.81*np.pi**2*db**4) * (da**4/db**4-1)
-hf2 = Pd/(998*9.81)
-
-
-
-def linfunc(x, a, b):
-    return a*x + b
-
-def quadfunc(x, a, b, c):
-    return a*x**2 + b*x + c
-
-
-parlin, covlin = curve_fit(linfunc, Q, hf2)
-parquad, covquad = curve_fit(quadfunc, Q, hf2, p0 = [100,1,1])
-
-X = np.linspace(np.min(Q), np.max(Q), 100)
-Ylin = linfunc(X, *parlin)
-Yquad = quadfunc(X, *parquad)
-
-
-
-##Orifice
-d = 4*10**(-3)
-D = 6.4*10**(-3)    
-At = np.pi/4 * (d)**2
-beta = d/D
-Q = np.array([1, 1.5, 2.0, 2.5, 3.0, 3.5])*10**(-3)/60
-dP = np.mean(np.array([[18, 19], [40, 41], [75, 69], [114, 115], [165, 166], [232, 235]])*10**2, axis = 1)
-Cd = Q/( At * np.sqrt(2*dP/(998*(1-beta**4))) )
-print(Cd, "[m^3/s]")
-print(np.mean(Cd))
-
-dp = 6.35*10**2
-Q = np.mean(Cd)*At*np.sqrt(2*dp/(998*(1-beta**4)))
-print(Q)
-\end{lstlisting}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
