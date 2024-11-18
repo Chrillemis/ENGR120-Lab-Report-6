@@ -1,0 +1,213 @@
+% ****** Start of file aapmsamp.tex ******
+%
+%   This file is part of the AAPM files in the AAPM distribution for REVTeX 4-2.
+%   Version 4.2a of REVTeX, January 2015
+%
+%   Copyright (c) 2015 American Association of Physicists in Medicine (AAPM).
+%
+%   See the AAPM README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex  aapmsamp
+%  2)  bibtex aapmsamp
+%  3)  latex  aapmsamp
+%  4)  latex  aapmsamp
+%
+% Use this file as a source of example code for your aapm document.
+% Use the file aapmtemplate.tex as a template for your document.
+\documentclass[%
+ aapm,
+ mph,%
+ amsmath,amssymb,
+%preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{revtex4-2}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{maple}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{textcomp}
+\usepackage{subcaption}
+
+% \begin{document}
+\lstset{basicstyle=\ttfamily,breaklines=true,columns=flexible}
+\pagestyle{empty}
+\DefineParaStyle{Maple Bullet Item}
+\DefineParaStyle{Maple Heading 1}
+\DefineParaStyle{Maple Warning}
+\DefineParaStyle{Maple Heading 4}
+\DefineParaStyle{Maple Heading 2}
+\DefineParaStyle{Maple Heading 3}
+\DefineParaStyle{Maple Dash Item}
+\DefineParaStyle{Maple Error}
+\DefineParaStyle{Maple Title}
+\DefineParaStyle{Maple Ordered List 1}
+\DefineParaStyle{Maple Text Output}
+\DefineParaStyle{Maple Ordered List 2}
+\DefineParaStyle{Maple Ordered List 3}
+\DefineParaStyle{Maple Normal}
+\DefineParaStyle{Maple Ordered List 4}
+\DefineParaStyle{Maple Ordered List 5}
+\DefineCharStyle{Maple 2D Output}
+\DefineCharStyle{Maple 2D Input}
+\DefineCharStyle{Maple Maple Input}
+\DefineCharStyle{Maple 2D Math}
+\DefineCharStyle{Maple Hyperlink}
+
+
+\usepackage{gensymb}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{physics}
+% \usepackage{mathtools}
+% \usepackage{amsmath}
+\usepackage{bm}% bold math
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\modulolinenumbers[5]% Line numbers with a gap of 5 lines
+
+\begin{document}
+\noindent
+\header{ENGR 120}
+%\preprint{AAPM/123-QED}
+
+\title[]{\underline{Fluid Mechanics: Lab 5} \\
+Venturi and Orfice flow measurements and characterization}.% Force line breaks with \\
+
+\author{Christian Emil Lorentsen}%
+\author{Serafin Stauch}
+\author{Bryan Saldivar}
+\author{Xuan Zhao}
+
+\affiliation{University of California, Merced}
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+\begin{abstract}
+In this report we take a look at the Ventury and Orifice meter to determine the volume flow rate through a pipe. This is done from two simple pressure measurements, at two different points in the pipe. We also apply the steady flow energy equation to our systems, to study the friction head loss in the meters, by measuring the pressure at three different points. Finally we also study the discharge coefficient in the Orifice meter.
+
+\end{abstract}
+
+\maketitle
+\linenumbers\relax % Commence numbering lines
+\begin{quotation}
+%Explain why the physics you are studying is interesting and relevant.
+Venturi and Orifice meters provides and excellent way of measuring volume flow rate. From two simple pressure reading it is possible to measure the volume flow rate in a pipe using a Venturi meter, making it useful in a large variety of application. An Orifice meter also makes us able to measure the flow rate through a pipe, this time only using a small hole.
+
+\end{quotation}
+\section{\label{sec:level1}Background}
+\input{Chapter 1/Background}
+\subsection{\label{sec:level2}Theory}
+\input{Chapter 1/Theory}
+\subsection{\label{sec_level3}Method \& Setup}
+
+
+
+\input{Chapter 1/Method&Setup}
+\newpage
+\section{DATA AND RESULTS}
+% \textbf{Fra Jasons slides:} \\
+% \textit{
+% Include the data you took as figures or tables. \\
+% Any figures and tables should have appropriate captions and must be referenced somewhere in the main text. \\
+% Be sure that the plots are properly formatted with axes labels, units, and any relevant error bars on data. 
+% }
+
+Listed in Table \ref{table:Data} are the values measured from the setups described in \ref{sec_level3}. Also there are calculated values, where the Ideal $P_v$ is calculated using eq. \ref{eq:Qventuri} and $C_d$ from eq. \ref{eq:Cd}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h!]
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{l|lll|ll|}
+\cline{2-6}
+                                           & \multicolumn{3}{l|}{Venturi Meter}                                                                              & \multicolumn{2}{l|}{Orifice meter}                                        \\ \hline
+\multicolumn{1}{|l|}{\textbf{Q $[m^3/s]$}} & \multicolumn{1}{l|}{Measured $P_v [Pa]$} & \multicolumn{1}{l|}{\textbf{Measured $P_d [Pa]$}} & Ideal $P_v [Pa]$ & \multicolumn{1}{l|}{\textbf{$\delta p [Pa]$}} & \textbf{Calculated $C_d [m^{-1}]$} \\ \hline
+\multicolumn{1}{|l|}{$16.67*10^{-6}$}         & \multicolumn{1}{l|}{$-5350$}             & \multicolumn{1}{l|}{$-3450$}                      & $-241.8$         & \multicolumn{1}{l|}{$1850.00$}                & $0.63$                    \\ \hline
+\multicolumn{1}{|l|}{$25.00*10^{-6}$}         & \multicolumn{1}{l|}{$-9950$}             & \multicolumn{1}{l|}{$-5950$}                      & $-544.0$         & \multicolumn{1}{l|}{$4050.00$}                & $0.64$                    \\ \hline
+\multicolumn{1}{|l|}{$33.33*10^{-6}$}         & \multicolumn{1}{l|}{$-17400$}            & \multicolumn{1}{l|}{$-8850$}                      & $-967.2$         & \multicolumn{1}{l|}{$7200.00$}                & $0.64$                    \\ \hline
+\multicolumn{1}{|l|}{$41.67*10^{-6}$}         & \multicolumn{1}{l|}{$-27200$}            & \multicolumn{1}{l|}{$-12250$}                     & $-1511.2$        & \multicolumn{1}{l|}{$11450.00$}               & $0.64$                    \\ \hline
+\multicolumn{1}{|l|}{$50.00*10^{-6}$}         & \multicolumn{1}{l|}{$-38200$}            & \multicolumn{1}{l|}{$-16300$}                     & $-2176.2$        & \multicolumn{1}{l|}{$16550.00$}               & $0.64$                    \\ \hline
+\multicolumn{1}{|l|}{$58.33*10^{-6}$}         & \multicolumn{1}{l|}{$-49650$}            & \multicolumn{1}{l|}{$-20650$}                     & $-2962.0$        & \multicolumn{1}{l|}{$23350.00$}               & $0.62$                    \\ \hline
+\end{tabular}%
+}
+\caption{Data for Venturi meter with an average value for $C_d\approx0.636 $.}
+
+\label{table:Data}
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+\subsection{Analysis}
+\input{Analysis}
+% \textbf{Fra Jasons slides:} \\
+% \textit{
+% Include any systematic and statistical uncertainties. Explicitly write, describe, and quantify the impact of systematic uncertainties as part of the main text. \\
+% Report the outcome of any calculations or fits using the data. All results and calculations should include uncertainties.
+% }
+\newpage
+\section{DISCUSSION}
+\input{Discussion}
+
+\section{CONCLUSION}
+In conclusion we have succesfully estimated the discharge coefficient, $C_d$ for a Orifice meter at $C_d \approx 0.363m^{-1}$. We have also concluded that the friction heads in a venturi meter $h_{f1}$ and $h_{f2}$ are highly correlated and quadratically dependent on $Q$. Our measurements for $P_d$ are unfortunately too low, although we haven't taken friction, viscous forces and turbulent into account
+
+% \newpage
+
+
+%\textbf{Fra Jasons slides:} \\
+%\textit{
+%Discuss the results! Did your measurement and calculation agree with theory? Were %your systematic uncertainties possibly too few or too many? Is there something you %%would change if you redo the experiment? What is the most important outcome and the %thing that you want the reader to remember most vividly?
+%}
+{
+\appendix
+% \section{Navn på appendix}
+% \textbf{Fra Jasons slides:} \\
+% \textit{
+% Marginally relevant material, equations, or derivations that support the write-up, but are not strictly necessary to understand the results, can be put in an appendix. \\
+% Lots of work done for the prelabs could be included in an appendix. E.g., while the equations themselves should absolutely be included the main text, the derivations of the magnetic field strength or the Schrödinger equation can be included in an appendix.\\
+% Appendices are not required.
+% }
+% \section{\label{app:schr}The time dependent Schrödinger equation}
+% The equation takes the form
+
+
+% \section{\label{app:prelab1}}
+
+
+
+\section{Calculations}
+% \subsection{\label{app:maple}Theoretical value of $C_d$}
+% The following was run in Maple
+% \input{Maple/FluidLab4}
+
+\subsection{\label{app:python}Python code used to run the calculations and the numerical integration}
+\input{Python}
+
+}
+
+
+\nocite{*}
+\section*{\underline{Citations}}
+\bibliography{aapmsamp}% Produces the bibliography via BibTeX.
+
+
+\end{document}
+%
+% ****** End of file aapmsamp.tex ******

@@ -1,0 +1,34 @@
+From Bernoullis eq. we get the following for the Venturi meter:
+
+\begin{eqnarray}
+P_a +\frac{1}{2} V_a^2 + \rho g z_a = p_b + \frac{1}{2} \rho V_b ^2 + \rho g z_1 \\
+\Rightarrow A_b^2 P_V = \frac{1}{2}A_b^2 \rho \big(V_b^2 - \tfrac{d_a^4}{d_b^4}V_b^2 \big) 
+\end{eqnarray}
+Where we get $V_a = (d_b^2/d_a^2)V_b$ from conservation of mass. This leads to the following equations:
+\begin{eqnarray}
+    Q = \frac{\pi}{4}d_b^2 \sqrt{\frac{2P_v}{\rho(1-d_a^4/d_b^4)}} \\
+    P_v = \frac{8Q^2\rho(1-d_a^4/d_b^4)}{\pi^2d_b^2}
+    \label{eq:Qventuri}
+\end{eqnarray}
+
+Eq. 373\cite{White_Xue_2021}
+\begin{equation}
+    \bigg(\frac{p}{\gamma} + \frac{V^2}{2g} + z\bigg)_{in} = \bigg(\frac{p}{\gamma} + \frac{V^2}{2g} + z\bigg)_{out} + h_{friction}
+\end{equation}
+Since we have no pump or turbine. $z_{in}=z_{out}$ and applying between point A and B we get
+\begin{eqnarray}
+    h_{f1} = \frac{P_v}{\rho g} + \frac{1}{2g}(V_a^2-V_b^2) = \frac{P_v}{\rho g} + \frac{Q^2}{2gA_b^2}\bigg(\frac{d_b^4}{d_a^4}-1\bigg) \\
+    = \frac{P_v}{\rho g} + \frac{2Q^2}{g\pi^2d_b^4}\bigg(\frac{d_b^4}{d_a^4}-1\bigg)
+    \label{eq:hf1}
+\end{eqnarray}
+It is easy to apply it between point A an C, since they have the same crossectional area, and we loose the second term:
+\begin{eqnarray}
+    h_{f2} = \frac{P_d}{\rho g}
+    \label{eq:hf2}
+\end{eqnarray}
+For the Orifice plate the relationship between the flow rate and pressure drop can be derived as \cite{White_2021}
+\begin{eqnarray}
+    Q = C_d A_t \bigg[\frac{2\Delta p}{\rho(1-\beta^4)}\bigg]
+    \label{eq:Cd}
+\end{eqnarray}
+Where $C_d$ is the discharge coefficient, $A_t$ is the throat area and $\beta = d/D$, see fig \ref{fig:Orifice}
