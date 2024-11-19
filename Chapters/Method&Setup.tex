@@ -1,1 +1,24 @@
-We have a setup of pies consisting of three different materials: Copper, Galvanized Steel and PVC. We control the flow rate through the pipe, and take measurements at five different flow rates: $2, 3, 4, 6 m^3/hr$ and an unknown. For each flow rate, we have an accelerometer hooked up to the pipe, which measures the acceleration in 3 different directions $(x, y, z)$ for 30 seconds, and we take the mean of each. We then f
+We have a setup of pies consisting of three different materials: Copper, Galvanized Steel and PVC. We control the flow rate through the pipe, and take measurements at five different flow rates: $2, 3, 4, 6 m^3/hr$ and an unknown. For each flow rate, we have an accelerometer hooked up to the pipe, which measures the acceleration in 3 different directions $(x, y, z)$ for 30 seconds, and we take the mean of each. We then fit a linear model:
+
+\begin{equation}
+    y = A\cdot x + B
+    \label{eq:linfunc}
+\end{equation}
+
+This model is run independently on all three axis, where we compare the $R^2$ for each model, to figure out which axis gives us the best results. We then process the data for the unknown results (take the mean) for the chosen axis and simply solve eq. \ref{eq:linfunc}:
+
+\begin{equation}
+    Flowrate = \frac{a-B}{A}
+\end{equation}
+Where $a$ is the mean acceleration and $A$ and $B$ are the  parameters from the fit
+For the uncertainties we get:
+\begin{eqnarray}
+    \delta Flowrate = \sqrt{ \bigg(\frac{1}{A}\bigg)^2 (\delta a^2 + \delta B^2) + \bigg(\frac{a-B}{A^2}\bigg)^2 \delta A^2}
+    \label{eq:Uncertainty}
+\end{eqnarray}
+Where $\delta A$ and $\delta B$ are found from the covariance matrix obtained by SciPy's curve\_fit function and $\delta a$ is found from the standard deviation of $a$:
+\begin{eqnarray}
+    \delta a = \frac{std(a)}{\sqrt{N}}
+    \label{eq:deltaa}
+\end{eqnarray}
+Where $N$ is the number of data points for $a$.
