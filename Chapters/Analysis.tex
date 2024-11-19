@@ -1,4 +1,11 @@
-
+\begin{table}[h!]
+\resizebox{\columnwidth}{!}{%
+\input{Python/Lab6/Results/R2_score}
+}
+\caption{Table of $R^2$ score and calculated unknown flowrate for each material and axis}
+\label{table:results}
+\end{table}
+As seen in Table \ref{table:results} it is clear, that $axis = 0$ is the best axis to apply our model from eq. \ref{eq:linfunc} on. This is done in figure \ref{fig:copper}, \ref{fig:galvanized} and \ref{fig:PVC}, from which the unknown flow rates are determined, as described in section \ref{sec_level1}. It is also clear from some of the flow rates, some having very large uncertainties and one even being negative.
 
 
 \begin{figure}[h!]
@@ -30,13 +37,4 @@
 
 
 
-\begin{table}[h!]
-\resizebox{\columnwidth}{!}{%
-\input{Python/Lab6/Results/R2_score}
-}
-\caption{Table of calculated  \ref{eq:hf1} and \ref{eq:hf2}}
-\label{table:hf1hf2}
-
-
-\end{table}
 
